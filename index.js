@@ -18,14 +18,13 @@ app.get('/fetch-html', async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: true,
-      executablePath: CHROME_PATH,
       'args' : [
         '--no-sandbox',
         '--disable-setuid-sandbox'
       ]
     });
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    await page.goto('https://yeminhtwe.com/', { waitUntil: 'networkidle2' });
     const html = await page.content();
     await browser.close();
     res.send(html);
