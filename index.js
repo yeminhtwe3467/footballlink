@@ -1,5 +1,5 @@
 const express = require('express');
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,18 +16,9 @@ app.get('/fetch-html', async (req, res) => {
   }
 
   try {
-    await puppeteer.createBrowserFetcher().download(puppeteer.PUPPETEER_REVISIONS.chromium);
     const browser = await puppeteer.launch({
-      headless: true,
-      'args' : [
-        '--disable-gpu',
-        '--disable-dev-shm-usage',
-        '--disable-setuid-sandbox',
-        '--no-first-run',
-        '--no-sandbox',
-        '--no-zygote',
-        '--single-process',
-      ]
+      executablePath: '/app/.apt/usr/bin/google-chrome-stable',
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
     await page.goto('https://yeminhtwe.com/', { waitUntil: 'networkidle2' });
