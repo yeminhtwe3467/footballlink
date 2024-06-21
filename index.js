@@ -20,8 +20,13 @@ app.get('/fetch-html', async (req, res) => {
       headless: true,
       executablePath: '/usr/bin/chromium-browser',
       'args' : [
+        '--disable-gpu',
+        '--disable-dev-shm-usage',
+        '--disable-setuid-sandbox',
+        '--no-first-run',
         '--no-sandbox',
-        '--disable-setuid-sandbox'
+        '--no-zygote',
+        '--single-process',
       ]
     });
     const page = await browser.newPage();
