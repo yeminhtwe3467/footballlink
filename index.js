@@ -16,6 +16,7 @@ app.get('/fetch-html', async (req, res) => {
   }
 
   try {
+    await puppeteer.createBrowserFetcher().download(puppeteer.PUPPETEER_REVISIONS.chromium);
     const browser = await puppeteer.launch({
       headless: true,
       'args' : [
