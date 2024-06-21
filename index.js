@@ -1,21 +1,13 @@
-const path = require('path');
 const express = require('express');
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('<h1>Hello world from root side</h1>')
-  res.send()
-})
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
-
-/*const express = require('express');
 const puppeteer = require('puppeteer');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
+
+app.get('/', (req, res) => {
+  res.send('<h1>Api is ready</h1>')
+  res.send()
+})
 
 app.get('/fetch-html', async (req, res) => {
   const url = req.query.url;
@@ -39,4 +31,3 @@ app.get('/fetch-html', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-*/
