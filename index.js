@@ -31,7 +31,7 @@ app.get('/fetch-html', async (req, res) => {
     res.send(html);
   } catch (error) {
     console.error(error);
-    res.status(500).send('Failed to fetch HTML content');
+    res.status(500).send(error);
   }
 });
 
