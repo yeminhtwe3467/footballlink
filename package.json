@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "node node_modules/puppeteer/install.js",
+    "gcp-build": "node node_modules/puppeteer/install.js",
     "start": "node index.js"
   },
   "keywords": [],
